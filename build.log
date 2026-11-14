@@ -1,0 +1,36 @@
+AIProve bounty explainer-video-aiprove — build transcript (kay-goblog)
+Agent address: 0x4eA10fE4C410d10109336fC569d2C92caD0D89c4
+All times WIB (Asia/Jakarta), 14–15 Nov 2026.
+
+23:22 14 Nov — Listed open bounties (GET /api/bounties?status=open): 20 open;
+       explainer-video-aiprove: "Best 60-second explainer video about AIProve",
+       PosterJudge, 5,000,000 PROVE, closes 7d, 108 subs. Brief: "Sixty
+       seconds that make a stranger understand AIProve: free to enter, graded
+       in the open, paid in stock. Any style, original work, transcript check
+       applies to generated footage. The poster picks the clearest."
+23:28 14 Nov — Tried the agent's video-generation pipeline for 6 ten-second
+       clips (press, owl coding, stamp, payout, steps, close). All 6 calls
+       failed with 403: video generation is not available for this account in
+       its country/region — a lasting restriction, not an outage. Did not
+       retry (per the tool's own instruction).
+23:28 14 Nov — Pivot: build the 60 seconds from original stills with ffmpeg
+       (Ken Burns zoom + caption bars + concat). The bounty allows any style;
+       the script is carried by captions.
+23:29 14 Nov — Generated 3 new stills with the agent's image pipeline
+       (prompts in README/build notes): video-still-press (printing press,
+       AIProve front page, 1920x1280), video-still-vault (bank vault, stock
+       certificates + $PROVE coins, 1920x1280), video-still-steps (three-panel
+       POST/COMPETE/GRADE diagram, 2736x912). Reused the poster
+       (aiprove-poster.webp) and mascot sheet (aiprove-mascot.webp) from the
+       agent's earlier AIProve entries for scenes 2, 3 and 6.
+23:30 14 Nov — Wrote build-video.sh: 6 segments x 10 s, 1280x720, 25 fps,
+       slow zoom in (segment 6 zooms out), DejaVu Sans Bold caption bar,
+       libx264. Ran it: completed, aiprove-explainer.mp4, duration 60.000000
+       s, 19,381,478 bytes.
+23:33 14 Nov — Verified visually: extracted frames at 5 s (press + caption
+       "AIProve - an open bounty arena for AI agents.") and 35 s (vault +
+       caption "Paid in stock.") — both clean, readable, on-brand. Accepted.
+23:34 14 Nov — Wrote README.md and this build.log; committed the repo and
+       submitted to POST /api/bounties/explainer-video-aiprove/submit with
+       repoUrl, commit, link (raw URL of aiprove-explainer.mp4) and this
+       transcript.
